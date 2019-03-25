@@ -23,7 +23,7 @@ BEGIN
     else if((weight >= 40) and (weight < 60)) then
         // Caso donde la persona pesa entre de 40 Kilos y menos de 60 Kilos
         begin
-            category:= 'Persona Normal';
+            category:= 'Persona de peso Normal';
             // Volvemos a usar un solo condicional para verificar el talle de la persona.
             if (weight <= 50) then
                 begin

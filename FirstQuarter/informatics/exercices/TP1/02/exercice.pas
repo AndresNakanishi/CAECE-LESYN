@@ -23,6 +23,7 @@ begin
     writeln('Ingrese el tipo de cosecha: ');
     writeln('Posibles entradas T => Trigo, G => Girasol, S => Soja');
     readln(sel);
+    sel:= UPCASE(sel);
     clrscr;
     writeln('Las toneladas de la cosecha: ');
     readln(quantity);

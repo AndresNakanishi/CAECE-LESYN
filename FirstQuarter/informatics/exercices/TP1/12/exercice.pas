@@ -23,6 +23,7 @@ BEGIN
     clrscr;
     writeln('Ingrese la direccion del viento: (N-O-S-E) ');
     readln(windDirection);
+    windDirection:= UPCASE(windDirection);
     clrscr;
     stMin:= 0;
     st:= temp;

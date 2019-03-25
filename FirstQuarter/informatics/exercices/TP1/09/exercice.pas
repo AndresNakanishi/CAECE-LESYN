@@ -28,12 +28,12 @@ BEGIN
         end
     else if(sel = '3') then
         begin
-            res := hec * 20;
+            res := hec * 30;
             selType := sel;
         end
     else if(sel = '4') then
         begin
-            res := hec * 20;
+            res := hec * 40;
             selType := sel;
         end
     else 

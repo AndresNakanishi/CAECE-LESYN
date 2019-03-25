@@ -47,7 +47,7 @@ BEGIN
         // se incluirá en esta sección hasta la proxima revisión/reunión con el cliente
         // donde NO se clasificará la caja ingresada
         begin
-            typeof:= 'Los datos dados no corresponden a ningun tipo de caja.';
+            typeof:= 'No clasifica.';
             res:= 0;
         end;
     writeln('Tipo de Caja: ',typeof);
