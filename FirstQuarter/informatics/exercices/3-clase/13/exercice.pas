@@ -39,7 +39,7 @@ BEGIN
         begin
             total := classes * thirdAmount;
         end;
-    if (equipment = 'S') then
+    if (equipment = 'N') then
         begin
             total := total + (classes * equipmentCharge);
         end;
