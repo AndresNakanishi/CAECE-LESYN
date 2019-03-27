@@ -31,7 +31,7 @@ BEGIN
         begin
             total := classes * firstAmount;
         end
-    else if ((classes > 5) and (classes <= 12)) then
+    else if (classes <= 12) then
         begin
             total := classes * secondAmount;
         end
