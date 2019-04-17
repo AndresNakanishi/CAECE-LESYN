@@ -3,8 +3,21 @@ program files;
     uses crt;
 
     var 
+        vector: array of integer;
         num: integer;
-        archivo: text;
+        arch: text;
+
+function MyFunction(ArchNombre:string,);
+begin
+    
+end;
+
+procedure leerArchivo();
+begin
+    repeat
+
+    until (eof(arch));
+end;
     
 BEGIN
     assign(archivo, 'file01.txt');
