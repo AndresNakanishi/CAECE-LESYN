@@ -1,0 +1,19 @@
+1: 1/1 Correcto
+
+2: 1/1 Correcto
+
+3: 1/1 Correcto
+
+4: 0/1 Incorrecto -
+
+5: 0.54/1 Regular
+
+6: 0/1 Incorrecto -
+
+7: 1/1 Correcto
+
+8: 0/1 Incorrecto -
+
+9: 1/1 Correcto
+
+10: 1/1 Correcto
