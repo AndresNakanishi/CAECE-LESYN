@@ -2,42 +2,76 @@ program func;
 
 	uses crt;
 
-var 
-		contador, contadorVerdad, numeroUno, numeroDos: integer;
-        arch: text;
-		porcentaje: real;
-		
-function par(mayor:integer;menor:integer):boolean;
-begin
-	if ( (mayor mod menor) = 0 ) then
-		par := true
-	else
-		par := false;
-end;
+	var 
 
+		alumno, mejorAlumno: string[10];
+		nota, n, i, aprobados, desaprobadosPorTP, tpDesaprobados, totalAlumnos, notaTotal : byte;
+		promedio, mejorPromedio : real;
+		arch: text;
+		nombres: string;
 
 BEGIN
 	clrscr;
-	assign(arch, 'pares.txt');
+	assign(arch, 'prueba.txt');
     reset(arch);
-    contador := 0;
-    contadorVerdad := 0;
+	readln(arch, n);
+	aprobados := 0;
+	desaprobadosPorTP := 0;
+	totalAlumnos := 0;
+	mejorPromedio := 0;
     while not eof(arch) do
         begin
-			contador := contador + 1;
-            readln(arch, numeroUno, numeroDos);
-			if numeroUno > numeroDos then
+			notaTotal := 0;
+			tpDesaprobados := 0;
+			read(arch, alumno);
+			nombres := nombres + alumno;
+			// Leer archivo nota a nota
+			for i:= 1 to n do
 				begin
-					if	(par(numeroUno,numeroDos) = true) then
-						contadorVerdad := contadorVerdad + 1;
-				end
-			else 
-				begin
-					if	(par(numeroDos,numeroUno) = true) then
-						contadorVerdad := contadorVerdad + 1;
+					if i <> n then
+						begin
+							read(arch,nota);
+						end
+					else 
+						begin
+							readln(arch,nota);
+						end;
+					// Si la nota es menor a 4 se considera que el trabajo práctico está desaprobado
+					if nota < 4 then
+						tpDesaprobados := tpDesaprobados + 1;
+					// Se añade a la nota total para calcular el promedio
+					notaTotal := notaTotal + nota;
 				end;
+
+			// Calculo el promedio
+			promedio := notaTotal / n;
+
+			// Evaluamos si está aprobado || Caso A
+
+			if ((promedio >= 4) and (tpDesaprobados <= 1)) then
+				aprobados := aprobados + 1;
+
+			// Evaluamos si está desaprobado para el Caso B
+
+			if (tpDesaprobados < 1) then
+				desaprobadosPorTP := desaprobadosPorTP + 1;
+
+			// Para el C
+			if promedio > mejorPromedio then
+				begin
+					mejorPromedio := promedio;
+					mejorAlumno := alumno;
+				end;
+			// Contador de Alumnos
+			totalAlumnos := totalAlumnos + 1;
         end;
+	// Respuestas
+	// A
+	writeln((aprobados/totalAlumnos*100):2:2,'%');
+	// B
+	writeln(desaprobadosPorTP);
+	// C
+	writeln(mejorAlumno);
+	writeln(nombres);
     close(arch);
-    porcentaje := contadorVerdad / contador * 100;
-    writeln('El porcentaje de de los pares que se cumplen es: ',porcentaje:2:2,'%');
 END.
