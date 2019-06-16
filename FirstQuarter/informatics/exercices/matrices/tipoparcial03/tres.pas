@@ -74,13 +74,21 @@ END;
 
 PROCEDURE resolverC(prod:productos; precios: preciosC; preciosCom:preciosG; n,m:byte);
 var
-	i,j,x:byte;
+	encontrado,j,x:byte;
 BEGIN
 writeln('Ingrese un numero del 1 al ',n);
 readln(x);
 clrscr;
-for i:= 1 to n do
-	for j:= 1 to m do
+encontrado := 0;
+for j:= 1 to m do
+	if preciosCom[x,j] <= precios[x] then
+		encontrado := 1;
+if encontrado = 1 then
+	writeln('Si')
+else
+	writeln('No');
+writeln('Presione cualquier tecla para continuar...');
+readkey;
 END;
 
 PROCEDURE Menu(prod:productos; precios: preciosC; preciosCom:preciosG; n,m:byte);
